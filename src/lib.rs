@@ -10,7 +10,7 @@ pub struct Credential {
 
 pub fn decode(s: &str) -> Result<Credential, ParseError> {
     match s {
-	s if s.starts_with("Basic") => {
+	s if s.starts_with("Basic ") => {
 	    let decoded = base64::decode(&s[6..])?;
 	    let decoded = std::str::from_utf8(&decoded)?;
 	    let parts: Vec<&str> = decoded.splitn(2, ":").collect();
