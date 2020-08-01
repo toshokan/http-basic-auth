@@ -4,8 +4,8 @@ use error::ParseError;
 
 #[derive(Debug, PartialEq)]
 pub struct Credential {
-    user_id: String,
-    password: String
+    pub user_id: String,
+    pub password: String
 }
 
 pub fn decode(s: &str) -> Result<Credential, ParseError> {
