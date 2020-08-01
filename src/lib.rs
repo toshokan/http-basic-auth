@@ -23,6 +23,13 @@ pub fn decode(s: &str) -> Result<Credential, ParseError> {
     }
 }
 
+impl std::str::FromStr for Credential {
+    type Err = ParseError;
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+	decode(s)
+    }
+}
+
 #[cfg(test)]
 mod test {
     use super::*;
